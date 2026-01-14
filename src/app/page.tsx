@@ -41,7 +41,7 @@ export default function Home() {
               
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4 mb-8">
                 <Link 
-                  href="/inscription" 
+                  href="/formations" 
                   className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-red-900/30 hover:shadow-red-900/50 hover:scale-105"
                 >
                   Commencer maintenant
@@ -153,7 +153,7 @@ export default function Home() {
                 </div>
               </div>
               <Link 
-                href="/a-propos" 
+                href="/realisations" 
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 rounded-xl font-medium transition-all hover:scale-105"
               >
                 En savoir plus
@@ -321,7 +321,7 @@ export default function Home() {
                     unis par une même vision : vous accompagner vers la réussite dans les marchés financiers.
                   </p>
                   <Link 
-                    href="/equipe" 
+                    href="/realisations" 
                     className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 rounded-xl font-semibold transition-all hover:scale-105 group"
                   >
                     Découvrir l'équipe
@@ -433,16 +433,16 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 
-              href="/inscription" 
+              href="/formations" 
               className="px-8 py-4 bg-white text-red-900 hover:bg-gray-100 rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
             >
-              S'inscrire maintenant
+              Voir les formations
             </Link>
             <Link 
-              href="/communaute" 
+              href="/contact" 
               className="px-8 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 rounded-xl font-semibold text-lg transition-all"
             >
-              Rejoindre la communauté
+              Nous contacter
             </Link>
           </div>
         </div>

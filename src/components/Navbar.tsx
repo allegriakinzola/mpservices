@@ -9,12 +9,9 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Accueil' },
-    { href: '/a-propos', label: 'À propos' },
     { href: '/formations', label: 'Formations' },
-    { href: '/partenariats', label: 'Partenariats' },
     { href: '/realisations', label: 'Réalisations' },
-    { href: '/services', label: 'Services' },
-    { href: '/communaute', label: 'Communauté' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   return (
@@ -49,10 +46,10 @@ export default function Navbar() {
               </Link>
             ))}
             <Link 
-              href="/inscription" 
+              href="/contact" 
               className="ml-4 px-5 py-2 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-lg text-sm font-semibold transition-all hover:scale-105 shadow-lg shadow-orange-900/30"
             >
-              S'inscrire
+              Nous contacter
             </Link>
           </div>
 
@@ -100,11 +97,11 @@ export default function Navbar() {
             </Link>
           ))}
           <Link 
-            href="/inscription" 
+            href="/contact" 
             className="block w-full text-center px-4 py-3 mt-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-lg text-base font-semibold transition-colors"
             onClick={() => setIsOpen(false)}
           >
-            S'inscrire
+            Nous contacter
           </Link>
         </div>
       </div>

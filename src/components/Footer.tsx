@@ -2,18 +2,17 @@ import Link from 'next/link';
 
 export default function Footer() {
   const quickLinks = [
-    { href: '/a-propos', label: 'À propos' },
+    { href: '/', label: 'Accueil' },
     { href: '/formations', label: 'Formations' },
-    { href: '/partenariats', label: 'Partenariats' },
     { href: '/realisations', label: 'Réalisations' },
-    { href: '/communaute', label: 'Communauté' },
+    { href: '/contact', label: 'Contact' },
   ];
 
   const services = [
-    { href: '/services', label: 'Trading Forex & Crypto' },
+    { href: '/formations', label: 'Trading Forex & Crypto' },
     { href: '/formations', label: 'Formation en trading' },
-    { href: '/services', label: 'Coaching personnalisé' },
-    { href: '/services', label: 'Consulting financier' },
+    { href: '/formations', label: 'Coaching personnalisé' },
+    { href: '/contact', label: 'Consulting financier' },
   ];
 
   return (
@@ -113,10 +112,10 @@ export default function Footer() {
             </ul>
             
             <Link 
-              href="/inscription" 
+              href="/contact" 
               className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 rounded-lg font-semibold text-sm transition-all hover:scale-105"
             >
-              S'inscrire maintenant
+              Nous contacter
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -133,8 +132,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Market Place Services. Tous droits réservés.
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
-              <Link href="/mentions-legales" className="hover:text-white transition-colors">Mentions légales</Link>
-              <Link href="/confidentialite" className="hover:text-white transition-colors">Confidentialité</Link>
+              <span>Termes & Conditions</span>
             </div>
           </div>
         </div>
