@@ -74,42 +74,29 @@ export default function FormationsPage() {
     // Formations futures
     {
       id: 1,
-      title: "Masterclass Trading Forex Avancé",
-      description: "Maîtrisez les stratégies avancées du trading Forex avec notre formation intensive. Analyse technique approfondie, gestion du risque et psychologie du trader.",
-      date: "2026-02-15T09:00:00",
-      duration: "4 semaines",
-      level: "Avancé",
-      price: "299$",
-      instructor: "Expert MPS",
-      spots: 15,
-      status: "future",
-      index: 10, // Mise en avant maximale
-    },
-    {
-      id: 2,
-      title: "Introduction aux Cryptomonnaies",
-      description: "Découvrez l'univers des cryptomonnaies, de la blockchain aux stratégies d'investissement. Formation idéale pour les débutants.",
-      date: "2026-02-20T14:00:00",
-      duration: "2 semaines",
+      title: "Boom/Crash Index - Formation Complète",
+      description: "Base incontournable pour trader les indices Boom/Crash. Maîtriser les contours de Boom/Crash Index comme un pro. De zéro à trader confirmé.",
+      date: "2026-02-16T09:00:00",
+      duration: "30 heures",
       level: "Débutant",
-      price: "149$",
-      instructor: "Expert MPS",
-      spots: 25,
-      status: "future",
-      index: 5,
-    },
-    {
-      id: 3,
-      title: "Indices Synthétiques - Stratégies Gagnantes",
-      description: "Apprenez à trader les indices synthétiques avec des stratégies éprouvées. Volatility Index, Crash & Boom, Step Index.",
-      date: "2026-03-01T10:00:00",
-      duration: "3 semaines",
-      level: "Intermédiaire",
-      price: "199$",
+      price: "139$",
       instructor: "Expert MPS",
       spots: 20,
       status: "future",
-      index: 3,
+      index: 10, // Mise en avant maximale - Formation à la une
+    },
+    {
+      id: 2,
+      title: "Spike Detector - Boom/Crash Avancé",
+      description: "Base incontournable pour trader les spikes Boom/Crash Index. Débloquez la compétence \"Spike Detector\" sur Boom/Crash Index !",
+      date: "2026-03-17T18:00:00",
+      duration: "30 heures",
+      level: "Avancé",
+      price: "259$",
+      instructor: "Expert MPS",
+      spots: 15,
+      status: "future",
+      index: 9, // Formation à venir
     },
     // Formations en cours
     {
@@ -202,8 +189,8 @@ export default function FormationsPage() {
             Nos <span className="text-orange-400">Formations</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Des formations complètes pour maîtriser les marchés financiers. 
-            Du débutant à l'expert, trouvez la formation adaptée à votre niveau.
+            Formations complètes pour maîtriser les marchés financiers, du débutant à l'expert.
+            Modules annuels, formateurs expérimentés, sécurité et professionnalisme garantis.
           </p>
         </div>
       </section>
@@ -307,7 +294,7 @@ export default function FormationsPage() {
                         </div>
 
                         <Link
-                          href={`/inscription?formation=${formationsFutures[0].id}`}
+                          href="https://docs.google.com/forms/d/e/1FAIpQLSe7sK1_kaXCvfuuG7Xu5o3hOA-sEc4CZ5xc5ZwKEferAAZWHw/viewform" target="_blank" rel="noopener noreferrer"
                           className="block w-full text-center py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
                         >
                           S'inscrire maintenant
@@ -356,7 +343,7 @@ export default function FormationsPage() {
                       <div className="flex items-center justify-between">
                         <span className="text-xl font-bold">{formation.price}</span>
                         <Link
-                          href={`/inscription?formation=${formation.id}`}
+                          href="https://docs.google.com/forms/d/e/1FAIpQLSe7sK1_kaXCvfuuG7Xu5o3hOA-sEc4CZ5xc5ZwKEferAAZWHw/viewform" target="_blank" rel="noopener noreferrer"
                           className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 rounded-lg font-medium text-sm transition-all hover:scale-105"
                         >
                           S'inscrire

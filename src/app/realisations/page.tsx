@@ -37,45 +37,29 @@ export default function RealisationsPage() {
 
   // Statistiques globales
   const stats = [
-    { label: "Conférences organisées", value: "25+", icon: "🎤" },
-    { label: "Formations réalisées", value: "150+", icon: "📚" },
-    { label: "Étudiants formés", value: "2000+", icon: "🎓" },
-    { label: "Traders actifs", value: "500+", icon: "📈" },
+    { label: "Conférences organisées", value: "+50", icon: "🎙" },
+    { label: "Classes formées", value: "+30", icon: "📚" },
+    { label: "Étudiants formés", value: "+350", icon: "🎓" },
+    { label: "Personnes touchées", value: "+500", icon: "📈" },
   ];
 
   // Conférences
   const conferences: Conference[] = [
     {
       id: 1,
-      title: "Summit Trading Africa 2025",
-      date: "2025-11-15",
-      location: "Kinshasa, RDC",
-      participants: 500,
-      description: "Grande conférence sur les opportunités du trading en Afrique. Intervenants internationaux et sessions pratiques.",
+      title: "Conférence Trading – Brazzaville",
+      date: "2025-11-14",
+      location: "Hôtel GHS, Brazzaville, Congo",
+      participants: 20,
+      description: "Échange avec les traders résidant en République du Congo sur les enjeux du trading, les risques et les stratégies appropriées pour améliorer leur rentabilité. Thème : Expérience Deriv (+25 ans d'activité). Durée : 2 jours (14-16/11/2025). Partenaire : Deriv.",
     },
     {
       id: 2,
-      title: "Masterclass Forex Live",
-      date: "2025-09-20",
-      location: "Lubumbashi, RDC",
-      participants: 200,
-      description: "Session intensive de trading en direct avec analyse des marchés et stratégies gagnantes.",
-    },
-    {
-      id: 3,
-      title: "Crypto & Blockchain Summit",
-      date: "2025-07-10",
-      location: "Brazzaville, Congo",
-      participants: 350,
-      description: "Exploration des technologies blockchain et des opportunités dans les cryptomonnaies.",
-    },
-    {
-      id: 4,
-      title: "Forum des Jeunes Traders",
-      date: "2025-05-25",
-      location: "Kinshasa, RDC",
-      participants: 400,
-      description: "Événement dédié aux jeunes souhaitant se lancer dans le trading et l'investissement.",
+      title: "Conférence Déc-Fin : Déclic Financier",
+      date: "2026-02-07",
+      location: "Silikin Village",
+      participants: 100,
+      description: "Événement à venir. Thème : Déclic financier. Date : 07 février 2026. Heure : 09h00. Durée : 3 heures. Capacité : 100 personnes.",
     },
   ];
 

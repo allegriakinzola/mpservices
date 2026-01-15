@@ -46,13 +46,8 @@ export default function Home() {
                 >
                   Commencer maintenant
                 </Link>
-                <Link 
-                  href="/formations" 
-                  className="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl font-semibold text-lg transition-all border border-white/20"
-                >
-                  Découvrir nos formations
-                </Link>
               </div>
+              <p className="text-gray-300 text-lg mb-4">Découvrir nos formations</p>
               
               <div className="flex justify-center lg:justify-start gap-4">
                 <a href="#" className="p-3 bg-white/10 hover:bg-green-600 rounded-full transition-all hover:scale-110 group" title="WhatsApp">
@@ -121,36 +116,17 @@ export default function Home() {
             </div>
             
             <div>
-              <h3 className="text-3xl font-bold mb-6 text-orange-300">Notre Mission</h3>
               <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                Market Place Services est une plateforme de formation et d'orientation dédiée aux marchés financiers. 
-                Nous accompagnons nos membres dans leur parcours vers l'indépendance financière.
+                Market Place Services est une plateforme dédiée à l'éducation financière et à l'orientation vers les marchés financiers.
               </p>
+              <h3 className="text-3xl font-bold mb-6 text-orange-300">Notre Mission</h3>
               <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-gray-200">Former aux techniques de trading professionnelles</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-gray-200">Orienter vers les meilleures opportunités</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
-                    <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span className="text-gray-200">Connecter à un réseau de partenaires fiables</span>
-                </div>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Accompagner les débutants et les profils avancés dans la compréhension du trading, des marchés boursiers et de la gestion du risque, à travers des formations structurées, adaptées à la réalité locale et accessibles en ligne.
+                </p>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Former des personnes responsables, capables de comprendre ce qu'elles font avant d'agir.
+                </p>
               </div>
               <Link 
                 href="/realisations" 
@@ -252,7 +228,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <span className="inline-block px-4 py-1 bg-white/10 text-gray-300 rounded-full text-sm font-medium mb-4">
-              Ils nous font confiance
+              Nos outils
             </span>
             <h2 className="text-2xl md:text-3xl font-bold">Nos Partenaires</h2>
           </div>
@@ -261,13 +237,11 @@ export default function Home() {
             <div className="flex animate-scroll gap-12 items-center">
               {[
                 { name: 'Binance', logo: '₿' },
-                { name: 'Deriv', logo: 'D' },
                 { name: 'MetaTrader', logo: 'MT' },
                 { name: 'TradingView', logo: 'TV' },
                 { name: 'Bybit', logo: 'BY' },
                 { name: 'OKX', logo: 'OKX' },
                 { name: 'Binance', logo: '₿' },
-                { name: 'Deriv', logo: 'D' },
                 { name: 'MetaTrader', logo: 'MT' },
                 { name: 'TradingView', logo: 'TV' },
                 { name: 'Bybit', logo: 'BY' },
@@ -299,37 +273,43 @@ export default function Home() {
             <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-orange-500 mx-auto mb-8 rounded-full"></div>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute -inset-4 bg-gradient-to-r from-red-600/20 to-orange-500/20 rounded-3xl blur-2xl"></div>
-            <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 overflow-hidden">
-              <div className="grid md:grid-cols-2 items-center">
-                <div className="relative h-80 md:h-[400px]">
-                  <Image
-                    src="/images/tradeur.jpg"
-                    alt="Notre équipe Market Place Services"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/50 md:bg-gradient-to-r md:from-transparent md:to-red-950/80"></div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Darryl Kalambayi */}
+            <div className="group relative">
+              <div className="absolute -inset-2 bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-2">
+                <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-orange-500 shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  <Image src="/images/Kalambayid.jpg" alt="Darryl Kalambayi" fill className="object-cover" />
                 </div>
-                <div className="p-8 md:p-12">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6 text-orange-300">
-                    Une équipe passionnée à votre service
-                  </h3>
-                  <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                    Notre équipe est composée de traders expérimentés et de formateurs dévoués, 
-                    unis par une même vision : vous accompagner vers la réussite dans les marchés financiers.
-                  </p>
-                  <Link 
-                    href="/realisations" 
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 rounded-xl font-semibold transition-all hover:scale-105 group"
-                  >
-                    Découvrir l'équipe
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </Link>
+                <h4 className="font-bold text-white text-2xl mb-2">Darryl Kalambayi</h4>
+                <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-orange-500/30 to-red-500/30 text-orange-300 rounded-full text-sm font-medium mb-4">Analyste Financier</span>
+                <p className="text-gray-300 leading-relaxed">Trader indépendant sur les indices synthétiques Deriv (Boom/Crash) depuis 2018.</p>
+              </div>
+            </div>
+
+            {/* Hervé Kabeya */}
+            <div className="group relative">
+              <div className="absolute -inset-2 bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-2">
+                <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-orange-500 shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  <Image src="/images/Kabeyad.jpg" alt="Hervé Kabeya" fill className="object-cover" />
                 </div>
+                <h4 className="font-bold text-white text-2xl mb-2">Hervé Kabeya</h4>
+                <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-orange-500/30 to-red-500/30 text-orange-300 rounded-full text-sm font-medium mb-4">Expert Forex</span>
+                <p className="text-gray-300 leading-relaxed">Plus de 5 ans d'expertise sur les marchés financiers : Forex et indices synthétiques Deriv (depuis 2019).</p>
+              </div>
+            </div>
+
+            {/* Joycelin Phoba */}
+            <div className="group relative">
+              <div className="absolute -inset-2 bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 text-center hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:-translate-y-2">
+                <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-orange-500 shadow-xl group-hover:scale-105 transition-transform duration-300">
+                  <Image src="/images/Phobad.JPG" alt="Joycelin Phoba" fill className="object-cover" />
+                </div>
+                <h4 className="font-bold text-white text-2xl mb-2">Joycelin Phoba</h4>
+                <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-orange-500/30 to-red-500/30 text-orange-300 rounded-full text-sm font-medium mb-4">Trader</span>
+                <p className="text-gray-300 leading-relaxed">Plus de 5 ans d'activité sur les marchés financiers (depuis 2021).</p>
               </div>
             </div>
           </div>
