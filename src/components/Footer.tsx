@@ -131,7 +131,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Market Place Services. Tous droits réservés.
             </p>
             <div className="flex gap-6 text-sm text-gray-400">
-              <span>Developed by <a href="https://allegriakinzola.com" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors">Allegria Kinzola</a></span>
+              {/* <span>Developed by <a href="https://allegriakinzola.com" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors">Allegria Kinzola</a></span> */}
             </div>
           </div>
         </div>
