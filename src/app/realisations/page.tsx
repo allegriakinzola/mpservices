@@ -26,9 +26,19 @@ interface FormationRealisee {
   level: string;
   price: string;
   instructor: string;
-  spots: number;
-  mode: string;
-  vacation: string;
+  participants: number;
+}
+
+interface Colloque {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  duration: string;
+  level: string;
+  price: string;
+  instructor: string;
+  participants: number;
 }
 
 interface Etudiant {
@@ -78,87 +88,77 @@ export default function RealisationsPage() {
     },
   ];
 
-  // Formations réalisées (synchronisées avec la page formations)
+  // Formations réalisées (5 formations)
   const formationsRealisees: FormationRealisee[] = [
     {
       id: 1,
-      title: "Base du Trading",
-      description: "Les bases du trading : initiation au trading et aux plateformes de trading.",
-      date: "2025-02-17T18:00:00",
-      duration: "24 heures",
-      level: "Débutant",
-      price: "100 $ (promo)",
-      instructor: "Hervé K. & Darryl K.",
-      spots: 24,
-      mode: "Présentiel",
-      vacation: "Soir",
+      title: "Gestion du Risque et Psychologie du Trader",
+      description: "Apprendre à protéger son capital, gérer ses émotions et construire une discipline de trader professionnel.",
+      date: "2025-11-05",
+      duration: "16 heures",
+      level: "Avancé",
+      price: "250 $ (promo)",
+      instructor: "Darryl K.",
+      participants: 22,
     },
     {
       id: 2,
-      title: "Colloque – Les Indices Synthétiques Deriv",
-      description: "Échange pratique sur les indices synthétiques Deriv : Boom, Crash, Jump, Volatilité.",
-      date: "2025-04-17T18:00:00",
-      duration: "6 heures",
-      level: "Mixte",
-      price: "100 $ (promo)",
-      instructor: "Darryl K. & Joycelin P.",
-      spots: 24,
-      mode: "Présentiel",
-      vacation: "Soir",
-    },
-    {
-      id: 3,
-      title: "Trading Forex – Stratégies de Base",
-      description: "Comprendre le Forex, les paires de devises, les sessions de marché et les stratégies simples pour débuter.",
-      date: "2025-05-10T09:00:00",
-      duration: "20 heures",
-      level: "Débutant",
-      price: "120 $",
-      instructor: "Expert MPS",
-      spots: 18,
-      mode: "Présentiel",
-      vacation: "Matinale",
-    },
-    {
-      id: 4,
-      title: "Analyse Technique et Indicateurs",
-      description: "Utilisation des indicateurs techniques : RSI, MACD, Moyennes mobiles et figures graphiques.",
-      date: "2025-06-15T18:00:00",
-      duration: "18 heures",
-      level: "Intermédiaire",
-      price: "150 $",
-      instructor: "Darryl K.",
-      spots: 20,
-      mode: "En ligne",
-      vacation: "Soir",
-    },
-    {
-      id: 5,
       title: "Boom & Crash – Détection des Spikes",
       description: "Techniques avancées pour détecter les spikes sur Boom et Crash et améliorer la précision d'entrée.",
-      date: "2025-08-20T18:00:00",
+      date: "2025-08-20",
       duration: "16 heures",
       level: "Avancé",
       price: "180 $",
       instructor: "Darryl K.",
-      spots: 15,
-      mode: "En ligne",
-      vacation: "Soir",
+      participants: 15,
     },
     {
-      id: 6,
-      title: "Gestion du Risque et Psychologie du Trader",
-      description: "Apprendre à protéger son capital, gérer ses émotions et construire une discipline de trader professionnel.",
-      date: "2025-11-05T09:00:00",
-      duration: "36 heures",
-      level: "Mixte",
-      price: "250 $ (promo)",
+      id: 3,
+      title: "Analyse Technique et Indicateurs",
+      description: "Utilisation des indicateurs techniques : RSI, MACD, Moyennes mobiles et figures graphiques.",
+      date: "2025-06-15",
+      duration: "18 heures",
+      level: "Intermédiaire",
+      price: "150 $",
       instructor: "Darryl K.",
-      spots: 22,
-      mode: "En ligne",
-      vacation: "Matinale",
+      participants: 20,
+    },
+    {
+      id: 4,
+      title: "Trading Forex – Stratégies de Base",
+      description: "Comprendre le Forex, les paires de devises, les sessions de marché et les stratégies simples pour débuter.",
+      date: "2025-05-10",
+      duration: "20 heures",
+      level: "Débutant",
+      price: "120 $",
+      instructor: "Expert MPS",
+      participants: 18,
+    },
+    {
+      id: 5,
+      title: "Base du Trading",
+      description: "Les bases du trading : initiation au trading et aux plateformes de trading.",
+      date: "2025-02-17",
+      duration: "24 heures",
+      level: "Débutant",
+      price: "100 $ (promo)",
+      instructor: "Hervé K. & Darryl K.",
+      participants: 24,
     },
   ];
+
+  // Colloque réalisé
+  const colloque: Colloque = {
+    id: 1,
+    title: "Colloque – Les Indices Synthétiques Deriv",
+    description: "Échange pratique sur les indices synthétiques Deriv : Boom, Crash, Jump, Volatilité.",
+    date: "2025-04-17",
+    duration: "6 heures",
+    level: "Mixte",
+    price: "100 $ (promo)",
+    instructor: "Darryl K. & Joycelin P.",
+    participants: 24,
+  };
 
   // Étudiants formés
   const etudiants: Etudiant[] = [
@@ -357,7 +357,7 @@ export default function RealisationsPage() {
                       <div className="bg-gray-50 rounded-xl p-4 space-y-2 text-sm">
                         <div className="flex justify-between">
                           <span className="text-gray-500">Thème :</span>
-                          <span className="font-medium text-gray-700">{conf.theme}</span>
+                          <span className="font-medium text-gray-700 text-right">{conf.theme}</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-500">Date :</span>
@@ -375,7 +375,7 @@ export default function RealisationsPage() {
                         </div>
                         <div className="flex justify-between">
                           <span className="text-gray-500">Lieu :</span>
-                          <span className="font-medium text-gray-700">{conf.location}</span>
+                          <span className="font-medium text-gray-700 text-right">{conf.location}</span>
                         </div>
                         {conf.partner && (
                           <div className="flex justify-between">
@@ -399,85 +399,113 @@ export default function RealisationsPage() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">
-                📚 Formations Récentes
+                📚 Historique
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Formations Réalisées</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Formations & Colloques</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mb-6 rounded-full"></div>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                Un historique de nos formations qui ont transformé des centaines de vies.
+                Un historique de nos formations et colloques qui ont transformé des centaines de vies.
               </p>
             </div>
 
-            {/* Cards avec design de la page formations */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {[...formationsRealisees].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((formation) => (
-                <div
-                  key={formation.id}
-                  className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-red-200 transition-all duration-300"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      formation.level === "Débutant" ? "bg-green-100 text-green-700" :
-                      formation.level === "Intermédiaire" ? "bg-yellow-100 text-yellow-700" :
-                      formation.level === "Avancé" ? "bg-red-100 text-red-700" :
-                      "bg-blue-100 text-blue-700"
-                    }`}>
-                      {formation.level}
-                    </span>
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      formation.mode === "En ligne" ? "bg-blue-100 text-blue-600" : "bg-green-100 text-green-600"
-                    }`}>
-                      {formation.mode}
-                    </span>
+            {/* Deux cards principales */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Card Formations */}
+              <div className="bg-white rounded-3xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-3xl">📚</span>
                   </div>
-                  
-                  <h4 className="text-lg font-bold mb-2 text-gray-800">{formation.title}</h4>
-                  <p className="text-gray-500 text-sm mb-4 line-clamp-2">{formation.description}</p>
+                  <span className="px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-bold">
+                    ✓ {formationsRealisees.length} Terminées
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">Formations</h3>
+                <p className="text-gray-500 mb-6">Nos formations complètes pour devenir trader professionnel.</p>
+                
+                <div className="space-y-3 mb-6">
+                  {formationsRealisees.map((formation) => (
+                    <div key={formation.id} className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0">
+                      <span className="text-gray-700 font-medium text-sm">{formation.title}</span>
+                      <span className="text-red-600 font-bold text-sm">{formation.participants} pers.</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="bg-red-50 rounded-xl p-4 text-center">
+                  <div className="text-4xl font-bold text-red-600 mb-1">
+                    {formationsRealisees.reduce((acc, f) => acc + f.participants, 0)}
+                  </div>
+                  <div className="text-gray-600 text-sm">Participants au total</div>
+                </div>
+              </div>
+
+              {/* Card Colloque */}
+              <div className="bg-white rounded-3xl border border-gray-200 p-8 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center shadow-lg">
+                    <span className="text-3xl">🎓</span>
+                  </div>
+                  <span className="px-4 py-2 bg-green-100 text-green-600 rounded-full text-sm font-bold">
+                    ✓ 1 Terminé
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">Colloque</h3>
+                <p className="text-gray-500 mb-6">Échange pratique et partage d'expériences entre traders.</p>
+                
+                <div className="bg-gray-50 rounded-xl p-4 mb-6">
+                  <h4 className="font-bold text-gray-800 mb-2">{colloque.title}</h4>
+                  <p className="text-gray-500 text-sm mb-4">{colloque.description}</p>
                   
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-500">Date :</span>
-                      <span className="font-medium text-gray-700">{new Date(formation.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span>
+                      <span className="font-medium text-gray-700">{new Date(colloque.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-500">Durée :</span>
-                      <span className="font-medium text-gray-700">{formation.duration}</span>
+                      <span className="font-medium text-gray-700">{colloque.duration}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-500">Vacation :</span>
-                      <span className="font-medium text-gray-700">{formation.vacation}</span>
+                      <span className="text-gray-500">Niveau :</span>
+                      <span className="font-medium text-gray-700">{colloque.level}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-500">Formateur :</span>
-                      <span className="font-medium text-gray-700">{formation.instructor}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-500">Participants :</span>
-                      <span className="font-medium text-gray-700">{formation.spots}</span>
+                      <span className="font-medium text-gray-700">{colloque.instructor}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-500">Prix :</span>
-                      <span className="font-medium text-red-600">{formation.price}</span>
+                      <span className="font-medium text-red-600">{colloque.price}</span>
                     </div>
                   </div>
                 </div>
-              ))}
+                
+                <div className="bg-blue-50 rounded-xl p-4 text-center">
+                  <div className="text-4xl font-bold text-blue-600 mb-1">
+                    {colloque.participants}
+                  </div>
+                  <div className="text-gray-600 text-sm">Participants</div>
+                </div>
+              </div>
             </div>
 
-            {/* Stats résumé */}
+            {/* Stats résumé global */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-red-100 to-red-50 rounded-3xl blur-2xl"></div>
               <div className="relative bg-white rounded-3xl border border-gray-200 shadow-lg p-8 flex flex-col md:flex-row items-center justify-center gap-8">
                 <div className="text-center">
                   <div className="text-5xl font-bold text-red-600">
-                    {formationsRealisees.length}
+                    {formationsRealisees.length + 1}
                   </div>
-                  <div className="text-gray-600">Formations terminées</div>
+                  <div className="text-gray-600">Événements terminés</div>
                 </div>
                 <div className="hidden md:block w-px h-16 bg-gray-200"></div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-red-600">
-                    {formationsRealisees.reduce((acc, f) => acc + f.spots, 0)}
+                    {formationsRealisees.reduce((acc, f) => acc + f.participants, 0) + colloque.participants}
                   </div>
                   <div className="text-gray-600">Participants formés</div>
                 </div>

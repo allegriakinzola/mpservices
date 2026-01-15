@@ -315,52 +315,52 @@ export default function Home() {
       <section className="py-24 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">
               Ils nous font confiance
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Témoignages</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Ils ont transformé leur avenir avec MPS</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mb-8 rounded-full"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Découvrez les retours de nos membres qui ont transformé leur parcours financier
+              La force de notre plateforme se mesure au succès de nos apprenants et partenaires. Voici leurs témoignages :
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                name: 'Jean-Pierre M.',
-                role: 'Trader Forex',
-                content: 'Grâce à Market Place Services, j\'ai pu acquérir les compétences nécessaires pour devenir un trader rentable. L\'accompagnement est exceptionnel !',
+                name: 'Glody Zenga',
+                role: 'Apprenant Forex',
+                content: 'Grâce à la formation Forex de MPS, j\'ai enfin compris comment anticiper les tendances. C\'est la plateforme d\'orientation financière qui manquait en RDC !',
                 rating: 5
               },
               {
-                name: 'Marie K.',
-                role: 'Investisseuse Crypto',
-                content: 'Les formations sont claires et accessibles. J\'ai enfin compris comment naviguer dans l\'univers des cryptomonnaies en toute confiance.',
+                name: 'Elie Kalengayi',
+                role: 'Participant Colloque',
+                content: 'Le colloque sur les indices synthétiques a été un déclic. MPS nous connecte aux vraies opportunités avec un professionnalisme rare.',
                 rating: 5
               },
               {
-                name: 'Patrick L.',
-                role: 'Trader Indices',
-                content: 'L\'équipe est très réactive et les stratégies enseignées sont vraiment efficaces. Je recommande à 100% !',
+                name: 'Isaac Kamwanga',
+                role: 'Investisseur Crypto',
+                content: 'Le service Crypto de MPS est d\'une fluidité incroyable. La sécurité des transactions et l\'orientation reçue m\'ont permis de sécuriser mon portefeuille d\'actifs.',
                 rating: 5
               },
               {
-                name: 'Sarah N.',
-                role: 'Débutante en Trading',
-                content: 'En tant que débutante, j\'avais peur de me lancer. Market Place Services m\'a guidée pas à pas vers mes premiers gains.',
+                name: 'Ged Mukendi',
+                role: 'Professionnel',
+                content: 'Les ateliers de MPS sur le suivi des procédures financières ont révolutionné notre manière de travailler. Ma productivité a littéralement doublé.',
                 rating: 5
               },
               {
-                name: 'David T.',
-                role: 'Trader Professionnel',
-                content: 'Même avec mon expérience, j\'ai appris de nouvelles techniques. La communauté est très enrichissante.',
+                name: 'Pistis Kingwaya',
+                role: 'Trader',
+                content: 'MPS ne se contente pas de former, ils nous orientent vers des stratégies concrètes. Le respect des standards et du Code du Numérique nous donne une confiance totale.',
                 rating: 5
               },
               {
-                name: 'Esther M.',
+                name: 'Lilia Mapasu',
                 role: 'Entrepreneure',
-                content: 'Le coaching personnalisé a fait toute la différence. Je génère maintenant des revenus complémentaires grâce au trading.',
+                content: 'La confidentialité et le sérieux de MPS sont exemplaires. Leurs solutions numériques sur mesure ont sécurisé toutes nos données sensibles tout en simplifiant nos processus.',
                 rating: 5
               }
             ].map((testimonial, index) => (
