@@ -187,37 +187,29 @@ export default function RealisationsPage() {
   const etudiantsTraders = etudiants.filter((e) => e.isTrader);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-blue-900 text-white pt-16">
+    <div className="min-h-screen bg-white text-gray-800 pt-16">
       {/* Hero Section - Design Amélioré */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
         {/* Background avec effets */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1920')] bg-cover bg-center"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-red-900/95 via-red-800/90 to-blue-900/95"></div>
-          {/* Cercles décoratifs */}
-          <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute inset-0 bg-[url('/images/tradeur.jpg')] bg-cover bg-center opacity-20"></div>
         </div>
         
-        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 text-center">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 py-20 text-center text-white">
           {/* Badge animé */}
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-full text-orange-300 text-sm font-medium mb-8 backdrop-blur-sm">
-            <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/20 border border-white/30 rounded-full text-white text-sm font-medium mb-8 backdrop-blur-sm">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
             🏆 Notre parcours d'excellence
           </div>
           
           {/* Titre avec effet */}
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="block text-white">Nos</span>
-            <span className="block bg-gradient-to-r from-orange-400 via-red-400 to-orange-500 bg-clip-text text-transparent">
-              Réalisations
-            </span>
+            <span className="block">Nos Réalisations</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-16 leading-relaxed">
             Découvrez notre impact : des conférences inspirantes, des formations de qualité, 
-            et des centaines d'étudiants devenus <span className="text-orange-400 font-semibold">traders prospères</span>.
+            et des centaines d'étudiants devenus <span className="font-semibold">traders prospères</span>.
           </p>
 
           {/* Stats avec design premium */}
@@ -227,13 +219,12 @@ export default function RealisationsPage() {
                 key={index}
                 className="group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-2">
+                <div className="relative bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8 hover:bg-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-2">
                   <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
-                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-2">
+                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-gray-400 font-medium">{stat.label}</div>
+                  <div className="text-sm text-white/80 font-medium">{stat.label}</div>
                 </div>
               </div>
             ))}
@@ -249,11 +240,11 @@ export default function RealisationsPage() {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="px-4 -mt-8">
+      <section className="px-4 -mt-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 bg-white/5 backdrop-blur-sm p-2 rounded-2xl border border-white/10">
+          <div className="flex flex-wrap justify-center gap-2 bg-white p-2 rounded-2xl border border-gray-200 shadow-lg">
             {[
-              { id: "conferences", label: "🎤 Conférences", count: conferences.length },
+              { id: "conferences", label: "🎙 Conférences", count: conferences.length },
               { id: "formations", label: "📚 Formations", count: formationsRealisees.length },
               { id: "etudiants", label: "🎓 Étudiants formés", count: etudiantsFormes.length },
               { id: "traders", label: "📈 Traders actifs", count: etudiantsTraders.length },
@@ -263,13 +254,13 @@ export default function RealisationsPage() {
                 onClick={() => setActiveSection(tab.id as typeof activeSection)}
                 className={`flex-1 min-w-[140px] py-3 px-4 rounded-xl font-medium transition-all text-sm ${
                   activeSection === tab.id
-                    ? "bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg"
-                    : "text-gray-400 hover:text-white hover:bg-white/10"
+                    ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg"
+                    : "text-gray-500 hover:text-red-600 hover:bg-red-50"
                 }`}
               >
                 {tab.label}
                 <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
-                  activeSection === tab.id ? "bg-white/20" : "bg-white/10"
+                  activeSection === tab.id ? "bg-white/20" : "bg-gray-100"
                 }`}>
                   {tab.count}
                 </span>
@@ -281,15 +272,15 @@ export default function RealisationsPage() {
 
       {/* Section Conférences */}
       {activeSection === "conferences" && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 bg-red-500/20 text-red-300 rounded-full text-sm font-medium mb-4">
-                🎤 Événements
+              <span className="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">
+                🎙 Événements
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Nos Conférences</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-orange-500 mx-auto mb-6 rounded-full"></div>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Nos Conférences</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mb-6 rounded-full"></div>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Des événements majeurs pour partager nos connaissances et inspirer la communauté des traders.
               </p>
             </div>
@@ -300,8 +291,8 @@ export default function RealisationsPage() {
                   key={conf.id}
                   className="group relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-orange-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-red-50 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative bg-white rounded-3xl border border-gray-200 overflow-hidden hover:shadow-xl hover:border-red-200 transition-all duration-300">
                     <div className="relative h-56 overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-red-600/40 via-orange-600/30 to-red-800/40"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -317,25 +308,25 @@ export default function RealisationsPage() {
                       </div>
                     </div>
                     <div className="p-8">
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-4">
-                        <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full">
-                          <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
+                        <div className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full">
+                          <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                           </svg>
                           {new Date(conf.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
                         </div>
-                        <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full">
-                          <svg className="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full">
+                          <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                           </svg>
                           {conf.location}
                         </div>
                       </div>
-                      <h3 className="text-2xl font-bold mb-4 group-hover:text-orange-300 transition-colors">
+                      <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-red-600 transition-colors">
                         {conf.title}
                       </h3>
-                      <p className="text-gray-400 leading-relaxed">{conf.description}</p>
+                      <p className="text-gray-600 leading-relaxed">{conf.description}</p>
                     </div>
                   </div>
                 </div>
@@ -347,15 +338,15 @@ export default function RealisationsPage() {
 
       {/* Section Formations Réalisées */}
       {activeSection === "formations" && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">
                 📚 Historique
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Formations Réalisées</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-orange-500 mx-auto mb-6 rounded-full"></div>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Formations Réalisées</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mb-6 rounded-full"></div>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Un historique de nos formations qui ont transformé des centaines de vies.
               </p>
             </div>
@@ -367,20 +358,20 @@ export default function RealisationsPage() {
                   key={formation.id}
                   className="group relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-red-200 transition-all duration-300">
                     <div className="flex items-center justify-between mb-4">
                       <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        formation.type === "En ligne" ? "bg-blue-500/20 text-blue-300" :
-                        formation.type === "Présentiel" ? "bg-green-500/20 text-green-300" :
-                        "bg-purple-500/20 text-purple-300"
+                        formation.type === "En ligne" ? "bg-blue-100 text-blue-600" :
+                        formation.type === "Présentiel" ? "bg-green-100 text-green-600" :
+                        "bg-purple-100 text-purple-600"
                       }`}>
                         {formation.type}
                       </span>
-                      <span className="text-2xl font-bold text-orange-400">{formation.participants}</span>
+                      <span className="text-2xl font-bold text-red-600">{formation.participants}</span>
                     </div>
-                    <h4 className="text-lg font-bold mb-2 group-hover:text-orange-300 transition-colors">{formation.title}</h4>
-                    <div className="flex items-center gap-4 text-sm text-gray-400">
+                    <h4 className="text-lg font-bold mb-2 text-gray-800 group-hover:text-red-600 transition-colors">{formation.title}</h4>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
                       <span className="flex items-center gap-1">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -401,20 +392,20 @@ export default function RealisationsPage() {
 
             {/* Stats résumé */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-3xl blur-2xl"></div>
-              <div className="relative bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8 flex flex-col md:flex-row items-center justify-center gap-8">
+              <div className="absolute inset-0 bg-gradient-to-r from-red-100 to-red-50 rounded-3xl blur-2xl"></div>
+              <div className="relative bg-white rounded-3xl border border-gray-200 shadow-lg p-8 flex flex-col md:flex-row items-center justify-center gap-8">
                 <div className="text-center">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold text-red-600">
                     {formationsRealisees.length}
                   </div>
-                  <div className="text-gray-400">Formations terminées</div>
+                  <div className="text-gray-600">Formations terminées</div>
                 </div>
-                <div className="hidden md:block w-px h-16 bg-white/20"></div>
+                <div className="hidden md:block w-px h-16 bg-gray-200"></div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold text-red-600">
                     {formationsRealisees.reduce((acc, f) => acc + f.participants, 0)}
                   </div>
-                  <div className="text-gray-400">Participants formés</div>
+                  <div className="text-gray-600">Participants formés</div>
                 </div>
               </div>
             </div>
@@ -424,15 +415,15 @@ export default function RealisationsPage() {
 
       {/* Section Étudiants Formés */}
       {activeSection === "etudiants" && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 bg-green-500/20 text-green-300 rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium mb-4">
                 🎓 Nos diplômés
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Nos Étudiants Formés</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-orange-500 mx-auto mb-6 rounded-full"></div>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Nos Étudiants Formés</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mb-6 rounded-full"></div>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Des profils diversifiés, unis par leur passion pour les marchés financiers.
               </p>
             </div>
@@ -443,22 +434,22 @@ export default function RealisationsPage() {
                   key={etudiant.id}
                   className="group relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:bg-white/10 hover:border-white/20 transition-all duration-300 text-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-orange-600 rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-100 to-green-50 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-red-200 transition-all duration-300 text-center">
+                    <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-700 rounded-full flex items-center justify-center text-3xl font-bold text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       {etudiant.name.charAt(0)}
                     </div>
-                    <h4 className="font-bold text-lg mb-1 group-hover:text-orange-300 transition-colors">{etudiant.name}</h4>
-                    <p className="text-sm text-orange-300 mb-2">{etudiant.formation}</p>
+                    <h4 className="font-bold text-lg mb-1 text-gray-800 group-hover:text-red-600 transition-colors">{etudiant.name}</h4>
+                    <p className="text-sm text-red-600 mb-2">{etudiant.formation}</p>
                     <p className="text-xs text-gray-500 mb-4">Formé en {etudiant.dateFormation}</p>
                     {etudiant.isTrader ? (
-                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 text-green-300 rounded-full text-xs font-medium">
-                        <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-600 rounded-full text-xs font-medium">
+                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                         Trader actif
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">
-                        <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-xs font-medium">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                         En formation
                       </span>
                     )}

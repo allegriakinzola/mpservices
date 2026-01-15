@@ -99,44 +99,38 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-blue-900 text-white pt-16">
+    <div className="min-h-screen bg-white text-gray-800 pt-16">
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse"></div>
-        </div>
+      <section className="relative py-24 overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
+        <div className="absolute inset-0 bg-[url('/images/tradeur.jpg')] bg-cover bg-center opacity-20"></div>
         
-        <div className="relative max-w-6xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 rounded-full text-orange-300 text-sm font-medium mb-8 backdrop-blur-sm">
-            <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+        <div className="relative max-w-6xl mx-auto px-4 text-center text-white">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/20 border border-white/30 rounded-full text-white text-sm font-medium mb-8 backdrop-blur-sm">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
             Nous sommes à votre écoute
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="block text-white">Contactez</span>
-            <span className="block bg-gradient-to-r from-orange-400 via-red-400 to-orange-500 bg-clip-text text-transparent">
-              Notre Équipe
-            </span>
+            Contactez Notre Équipe
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Une question ? Un projet ? Nous sommes là pour vous accompagner dans votre 
-            <span className="text-orange-400 font-semibold"> parcours vers le succès</span>.
+            <span className="font-semibold"> parcours vers le succès</span>.
           </p>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Formulaire */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/20 to-red-600/20 rounded-3xl blur-xl"></div>
-              <div className="relative bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8 md:p-10">
-                <h2 className="text-2xl font-bold mb-2">Envoyez-nous un message</h2>
-                <p className="text-gray-400 mb-8">Nous vous répondrons dans les plus brefs délais.</p>
+              <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-red-50 rounded-3xl blur-xl"></div>
+              <div className="relative bg-white rounded-3xl border border-gray-200 shadow-xl p-8 md:p-10">
+                <h2 className="text-2xl font-bold mb-2 text-gray-800">Envoyez-nous un message</h2>
+                <p className="text-gray-500 mb-8">Nous vous répondrons dans les plus brefs délais.</p>
 
                 {submitted ? (
                   <div className="text-center py-12">
@@ -145,11 +139,11 @@ export default function ContactPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 text-green-400">Message envoyé !</h3>
-                    <p className="text-gray-400 mb-6">Nous vous répondrons très bientôt.</p>
+                    <h3 className="text-2xl font-bold mb-2 text-green-600">Message envoyé !</h3>
+                    <p className="text-gray-500 mb-6">Nous vous répondrons très bientôt.</p>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition-colors"
+                      className="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl transition-colors"
                     >
                       Envoyer un autre message
                     </button>
@@ -158,26 +152,26 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium mb-2 text-gray-300">Nom complet</label>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">Nom complet</label>
                         <input
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all text-white placeholder-gray-500"
+                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all text-gray-800 placeholder-gray-400"
                           placeholder="Votre nom"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">Email</label>
                         <input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all text-white placeholder-gray-500"
+                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all text-gray-800 placeholder-gray-400"
                           placeholder="votre@email.com"
                         />
                       </div>
@@ -185,43 +179,43 @@ export default function ContactPage() {
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium mb-2 text-gray-300">Téléphone</label>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">Téléphone</label>
                         <input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all text-white placeholder-gray-500"
+                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all text-gray-800 placeholder-gray-400"
                           placeholder="+243..."
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium mb-2 text-gray-300">Sujet</label>
+                        <label className="block text-sm font-medium mb-2 text-gray-700">Sujet</label>
                         <select
                           name="subject"
                           value={formData.subject}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all text-white"
+                          className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all text-gray-800"
                         >
-                          <option value="" className="bg-red-900">Sélectionnez un sujet</option>
-                          <option value="formation" className="bg-red-900">Formation</option>
-                          <option value="partenariat" className="bg-red-900">Partenariat</option>
-                          <option value="information" className="bg-red-900">Demande d&apos;information</option>
-                          <option value="autre" className="bg-red-900">Autre</option>
+                          <option value="">Sélectionnez un sujet</option>
+                          <option value="formation">Formation</option>
+                          <option value="partenariat">Partenariat</option>
+                          <option value="information">Demande d&apos;information</option>
+                          <option value="autre">Autre</option>
                         </select>
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium mb-2 text-gray-300">Message</label>
+                      <label className="block text-sm font-medium mb-2 text-gray-700">Message</label>
                       <textarea
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
                         required
                         rows={5}
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:border-orange-500 focus:ring-1 focus:ring-orange-500 outline-none transition-all text-white placeholder-gray-500 resize-none"
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none transition-all text-gray-800 placeholder-gray-400 resize-none"
                         placeholder="Décrivez votre demande..."
                       ></textarea>
                     </div>
@@ -229,7 +223,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 rounded-xl font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      className="w-full py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-bold text-lg transition-all hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
                       {isSubmitting ? (
                         <>
@@ -256,26 +250,26 @@ export default function ContactPage() {
             {/* Informations de contact */}
             <div className="space-y-8">
               <div>
-                <h2 className="text-2xl font-bold mb-2">Informations de contact</h2>
-                <p className="text-gray-400">Plusieurs moyens de nous joindre.</p>
+                <h2 className="text-2xl font-bold mb-2 text-gray-800">Informations de contact</h2>
+                <p className="text-gray-500">Plusieurs moyens de nous joindre.</p>
               </div>
 
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-red-600/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    <div className="relative flex items-center gap-4 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all">
-                      <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="absolute inset-0 bg-gradient-to-r from-red-100 to-red-50 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="relative flex items-center gap-4 p-6 bg-white rounded-2xl border border-gray-200 hover:shadow-lg hover:border-red-200 transition-all">
+                      <div className="w-14 h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center flex-shrink-0 text-white">
                         {info.icon}
                       </div>
                       <div>
-                        <p className="text-sm text-gray-400 mb-1">{info.title}</p>
+                        <p className="text-sm text-gray-500 mb-1">{info.title}</p>
                         {info.link ? (
-                          <a href={info.link} className="text-lg font-medium hover:text-orange-400 transition-colors">
+                          <a href={info.link} className="text-lg font-medium text-gray-800 hover:text-red-600 transition-colors">
                             {info.value}
                           </a>
                         ) : (
-                          <p className="text-lg font-medium">{info.value}</p>
+                          <p className="text-lg font-medium text-gray-800">{info.value}</p>
                         )}
                       </div>
                     </div>
@@ -285,17 +279,17 @@ export default function ContactPage() {
 
               {/* Réseaux sociaux */}
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-3xl blur-xl"></div>
-                <div className="relative bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8">
-                  <h3 className="text-xl font-bold mb-4">Rejoignez notre communauté</h3>
-                  <p className="text-gray-400 mb-6">Suivez-nous sur nos réseaux pour ne rien manquer.</p>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-100 to-red-50 rounded-3xl blur-xl"></div>
+                <div className="relative bg-white rounded-3xl border border-gray-200 shadow-lg p-8">
+                  <h3 className="text-xl font-bold mb-4 text-gray-800">Rejoignez notre communauté</h3>
+                  <p className="text-gray-500 mb-6">Suivez-nous sur nos réseaux pour ne rien manquer.</p>
                   
                   <div className="flex gap-4">
                     {socialLinks.map((social, index) => (
                       <a
                         key={index}
                         href={social.href}
-                        className={`w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center transition-all hover:scale-110 ${social.color}`}
+                        className={`w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center transition-all hover:scale-110 text-gray-600 ${social.color} hover:text-white`}
                         title={social.name}
                       >
                         {social.icon}
@@ -307,28 +301,28 @@ export default function ContactPage() {
 
               {/* Horaires */}
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl blur-xl"></div>
-                <div className="relative bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 p-8">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-100 to-blue-50 rounded-3xl blur-xl"></div>
+                <div className="relative bg-white rounded-3xl border border-gray-200 shadow-lg p-8">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white">
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold">Horaires de disponibilité</h3>
+                    <h3 className="text-xl font-bold text-gray-800">Horaires de disponibilité</h3>
                   </div>
-                  <div className="space-y-2 text-gray-300">
+                  <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
                       <span>Lundi - Vendredi</span>
-                      <span className="text-white font-medium">9h00 - 18h00</span>
+                      <span className="text-gray-800 font-medium">9h00 - 18h00</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Samedi</span>
-                      <span className="text-white font-medium">10h00 - 14h00</span>
+                      <span className="text-gray-800 font-medium">10h00 - 14h00</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Dimanche</span>
-                      <span className="text-gray-500">Fermé</span>
+                      <span className="text-gray-400">Fermé</span>
                     </div>
                   </div>
                 </div>
@@ -339,14 +333,14 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-4 bg-gradient-to-b from-transparent via-red-900/30 to-transparent">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">
               ❓ FAQ
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Questions fréquentes</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-orange-500 mx-auto rounded-full"></div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Questions fréquentes</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto rounded-full"></div>
           </div>
 
           <div className="space-y-4">
@@ -370,12 +364,12 @@ export default function ContactPage() {
             ].map((faq, index) => (
               <div
                 key={index}
-                className="group bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:bg-white/10 hover:border-white/20 transition-all"
+                className="group bg-gray-50 rounded-2xl border border-gray-200 p-6 hover:bg-white hover:shadow-lg hover:border-red-200 transition-all"
               >
-                <h4 className="text-lg font-bold mb-2 group-hover:text-orange-300 transition-colors">
+                <h4 className="text-lg font-bold mb-2 text-gray-800 group-hover:text-red-600 transition-colors">
                   {faq.question}
                 </h4>
-                <p className="text-gray-400">{faq.answer}</p>
+                <p className="text-gray-600">{faq.answer}</p>
               </div>
             ))}
           </div>

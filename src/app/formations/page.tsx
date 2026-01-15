@@ -17,6 +17,9 @@ interface Formation {
   spots?: number;
   status: "future" | "encours" | "passee";
   index: number; // Plus l'index est élevé, plus la formation est mise en avant
+  mode?: string; // En ligne, Présentiel, Hybride
+  vacation?: string; // Matinale, Soir
+  pratique?: string; // Continu, etc.
 }
 
 function Countdown({ targetDate }: { targetDate: string }) {
@@ -56,10 +59,10 @@ function Countdown({ targetDate }: { targetDate: string }) {
         { value: timeLeft.seconds, label: "Sec" },
       ].map((item, index) => (
         <div key={index} className="text-center">
-          <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-orange-600 rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg">
+          <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center text-2xl font-bold shadow-lg text-white">
             {String(item.value).padStart(2, "0")}
           </div>
-          <span className="text-xs text-gray-400 mt-1 block">{item.label}</span>
+          <span className="text-xs text-gray-500 mt-1 block">{item.label}</span>
         </div>
       ))}
     </div>
@@ -79,11 +82,14 @@ export default function FormationsPage() {
       date: "2026-02-16T09:00:00",
       duration: "30 heures",
       level: "Débutant",
-      price: "139$",
+      price: "139 $",
       instructor: "Expert MPS",
       spots: 20,
       status: "future",
       index: 10, // Mise en avant maximale - Formation à la une
+      mode: "En ligne",
+      vacation: "Matinale",
+      pratique: "Continu",
     },
     {
       id: 2,
@@ -92,11 +98,14 @@ export default function FormationsPage() {
       date: "2026-03-17T18:00:00",
       duration: "30 heures",
       level: "Avancé",
-      price: "259$",
+      price: "259 $",
       instructor: "Expert MPS",
       spots: 15,
       status: "future",
       index: 9, // Formation à venir
+      mode: "En ligne",
+      vacation: "Soir",
+      pratique: "Continu",
     },
     // Formations en cours
     {
@@ -164,31 +173,30 @@ export default function FormationsPage() {
   const getLevelColor = (level: string) => {
     switch (level) {
       case "Débutant":
-        return "bg-green-500/20 text-green-300";
+        return "bg-green-100 text-green-700";
       case "Intermédiaire":
-        return "bg-yellow-500/20 text-yellow-300";
+        return "bg-yellow-100 text-yellow-700";
       case "Avancé":
-        return "bg-red-500/20 text-red-300";
+        return "bg-red-100 text-red-700";
       default:
-        return "bg-gray-500/20 text-gray-300";
+        return "bg-gray-100 text-gray-700";
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-blue-900 text-white pt-16">
+    <div className="min-h-screen bg-white text-gray-800 pt-16">
       {/* Hero Section */}
-      <section className="py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1920')] bg-cover bg-center opacity-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-red-900/80 to-red-900"></div>
+      <section className="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
+        <div className="absolute inset-0 bg-[url('/images/tradeur.jpg')] bg-cover bg-center opacity-20"></div>
         
-        <div className="relative max-w-6xl mx-auto text-center">
-          <span className="inline-block px-4 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm font-medium mb-6">
+        <div className="relative max-w-6xl mx-auto text-center text-white">
+          <span className="inline-block px-4 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-6">
             🎓 Développez vos compétences
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Nos <span className="text-orange-400">Formations</span>
+            Nos Formations
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto mb-8">
             Formations complètes pour maîtriser les marchés financiers, du débutant à l'expert.
             Modules annuels, formateurs expérimentés, sécurité et professionnalisme garantis.
           </p>
@@ -196,9 +204,9 @@ export default function FormationsPage() {
       </section>
 
       {/* Tabs */}
-      <section className="px-4 -mt-8">
+      <section className="px-4 -mt-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="flex justify-center gap-2 bg-white/5 backdrop-blur-sm p-2 rounded-2xl border border-white/10">
+          <div className="flex justify-center gap-2 bg-white p-2 rounded-2xl border border-gray-200 shadow-lg">
             {[
               { id: "future", label: "Formations à venir", count: formationsFutures.length },
               { id: "encours", label: "En cours", count: formationsEnCours.length },
@@ -209,13 +217,13 @@ export default function FormationsPage() {
                 onClick={() => setActiveTab(tab.id as typeof activeTab)}
                 className={`flex-1 py-3 px-4 rounded-xl font-medium transition-all ${
                   activeTab === tab.id
-                    ? "bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-lg"
-                    : "text-gray-400 hover:text-white hover:bg-white/10"
+                    ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg"
+                    : "text-gray-500 hover:text-red-600 hover:bg-red-50"
                 }`}
               >
                 {tab.label}
                 <span className={`ml-2 px-2 py-0.5 rounded-full text-xs ${
-                  activeTab === tab.id ? "bg-white/20" : "bg-white/10"
+                  activeTab === tab.id ? "bg-white/20" : "bg-gray-100"
                 }`}>
                   {tab.count}
                 </span>
@@ -227,21 +235,21 @@ export default function FormationsPage() {
 
       {/* Formations Futures - Featured */}
       {activeTab === "future" && (
-        <section className="py-16 px-4">
+        <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             {/* Formation principale mise en avant */}
             {formationsFutures[0] && (
               <div className="mb-16">
                 <div className="text-center mb-8">
-                  <span className="inline-block px-4 py-1 bg-red-500/20 text-red-300 rounded-full text-sm font-medium mb-4">
+                  <span className="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">
                     ⭐ Prochaine formation
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold">Formation à la une</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-800">Formation à la une</h2>
                 </div>
 
                 <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-red-600/30 to-orange-500/30 rounded-3xl blur-2xl"></div>
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/20 overflow-hidden">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-red-100 to-red-50 rounded-3xl blur-2xl"></div>
+                  <div className="relative bg-white rounded-3xl border border-gray-200 shadow-xl overflow-hidden">
                     <div className="grid lg:grid-cols-2">
                       <div className="relative h-64 lg:h-auto">
                         <Image
@@ -250,44 +258,64 @@ export default function FormationsPage() {
                           fill
                           className="object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-red-900/80 lg:bg-gradient-to-r lg:from-transparent lg:to-red-950"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/80 lg:bg-gradient-to-r lg:from-transparent lg:to-white"></div>
                       </div>
                       <div className="p-8 lg:p-12">
                         <div className="flex flex-wrap gap-2 mb-4">
                           <span className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(formationsFutures[0].level)}`}>
                             {formationsFutures[0].level}
                           </span>
-                          <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium">
+                          <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
                             {formationsFutures[0].duration}
                           </span>
+                          {formationsFutures[0].mode && (
+                            <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium">
+                              {formationsFutures[0].mode}
+                            </span>
+                          )}
+                          {formationsFutures[0].vacation && (
+                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-medium">
+                              {formationsFutures[0].vacation}
+                            </span>
+                          )}
                         </div>
                         
-                        <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-orange-300">
+                        <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-red-600">
                           {formationsFutures[0].title}
                         </h3>
-                        <p className="text-gray-300 mb-6 leading-relaxed">
+                        <p className="text-gray-600 mb-6 leading-relaxed">
                           {formationsFutures[0].description}
                         </p>
 
-                        <div className="flex items-center gap-2 mb-4 text-gray-300">
-                          <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          <span>Début : <strong>{new Date(formationsFutures[0].date).toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</strong></span>
+                        <div className="grid grid-cols-2 gap-3 mb-6 text-sm">
+                          <div className="flex items-center gap-2 text-gray-600">
+                            <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Début : <strong>16 février 2026</strong></span>
+                          </div>
+                          {formationsFutures[0].pratique && (
+                            <div className="flex items-center gap-2 text-gray-600">
+                              <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              <span>Pratique : <strong>{formationsFutures[0].pratique}</strong></span>
+                            </div>
+                          )}
                         </div>
 
                         <div className="mb-8">
-                          <p className="text-sm text-gray-400 mb-3 text-center">La formation commence dans :</p>
+                          <p className="text-sm text-gray-500 mb-3 text-center">La formation commence dans :</p>
                           <Countdown targetDate={formationsFutures[0].date} />
                         </div>
 
                         <div className="flex items-center justify-between mb-6">
                           <div>
-                            <span className="text-3xl font-bold text-white">{formationsFutures[0].price}</span>
-                            <span className="text-gray-400 text-sm ml-2">/ formation complète</span>
+                            <span className="text-3xl font-bold text-gray-800">{formationsFutures[0].price}</span>
+                            <span className="text-gray-500 text-sm ml-2">/ formation complète</span>
                           </div>
                           {formationsFutures[0].spots && (
-                            <span className="text-orange-300 text-sm">
+                            <span className="text-red-600 text-sm font-medium">
                               {formationsFutures[0].spots} places disponibles
                             </span>
                           )}
@@ -295,7 +323,7 @@ export default function FormationsPage() {
 
                         <Link
                           href="https://docs.google.com/forms/d/e/1FAIpQLSe7sK1_kaXCvfuuG7Xu5o3hOA-sEc4CZ5xc5ZwKEferAAZWHw/viewform" target="_blank" rel="noopener noreferrer"
-                          className="block w-full text-center py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
+                          className="block w-full text-center py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
                         >
                           S'inscrire maintenant
                         </Link>
@@ -309,27 +337,27 @@ export default function FormationsPage() {
             {/* Autres formations futures */}
             {formationsFutures.length > 1 && (
               <div>
-                <h3 className="text-2xl font-bold mb-8 text-center">Autres formations à venir</h3>
+                <h3 className="text-2xl font-bold mb-8 text-center text-gray-800">Autres formations à venir</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   {formationsFutures.slice(1).map((formation) => (
                     <div
                       key={formation.id}
-                      className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 hover:bg-white/10 transition-all hover:border-white/20"
+                      className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl transition-all hover:border-red-200"
                     >
                       <div className="flex flex-wrap gap-2 mb-4">
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(formation.level)}`}>
                           {formation.level}
                         </span>
-                        <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium">
+                        <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
                           {formation.duration}
                         </span>
                       </div>
 
-                      <h4 className="text-xl font-bold mb-3">{formation.title}</h4>
-                      <p className="text-gray-400 text-sm mb-4 line-clamp-2">{formation.description}</p>
+                      <h4 className="text-xl font-bold mb-3 text-gray-800">{formation.title}</h4>
+                      <p className="text-gray-500 text-sm mb-4 line-clamp-2">{formation.description}</p>
 
-                      <div className="flex items-center gap-2 mb-3 text-sm text-gray-400">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="flex items-center gap-2 mb-3 text-sm text-gray-500">
+                        <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                         <span>Début : {new Date(formation.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span>
@@ -341,10 +369,10 @@ export default function FormationsPage() {
                       </div>
 
                       <div className="flex items-center justify-between">
-                        <span className="text-xl font-bold">{formation.price}</span>
+                        <span className="text-xl font-bold text-gray-800">{formation.price}</span>
                         <Link
                           href="https://docs.google.com/forms/d/e/1FAIpQLSe7sK1_kaXCvfuuG7Xu5o3hOA-sEc4CZ5xc5ZwKEferAAZWHw/viewform" target="_blank" rel="noopener noreferrer"
-                          className="px-4 py-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 rounded-lg font-medium text-sm transition-all hover:scale-105"
+                          className="px-4 py-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg font-medium text-sm transition-all hover:scale-105"
                         >
                           S'inscrire
                         </Link>
@@ -360,31 +388,31 @@ export default function FormationsPage() {
 
       {/* Formations En Cours */}
       {activeTab === "encours" && (
-        <section className="py-16 px-4">
+        <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             {formationsEnCours.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {formationsEnCours.map((formation) => (
                   <div
                     key={formation.id}
-                    className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6"
+                    className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm"
                   >
                     <div className="flex items-center gap-2 mb-4">
                       <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
-                      <span className="text-green-400 text-sm font-medium">En cours</span>
+                      <span className="text-green-600 text-sm font-medium">En cours</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(formation.level)}`}>
                         {formation.level}
                       </span>
-                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
                         {formation.duration}
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-bold mb-3">{formation.title}</h4>
-                    <p className="text-gray-400 text-sm mb-4">{formation.description}</p>
+                    <h4 className="text-xl font-bold mb-3 text-gray-800">{formation.title}</h4>
+                    <p className="text-gray-500 text-sm mb-4">{formation.description}</p>
 
                     <div className="text-sm text-gray-500">
                       Début : {new Date(formation.date).toLocaleDateString("fr-FR")}
@@ -395,8 +423,8 @@ export default function FormationsPage() {
             ) : (
               <div className="text-center py-16">
                 <div className="text-6xl mb-4">📚</div>
-                <h3 className="text-2xl font-bold mb-2">Aucune formation en cours</h3>
-                <p className="text-gray-400">Consultez nos formations à venir pour vous inscrire.</p>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800">Aucune formation en cours</h3>
+                <p className="text-gray-500">Consultez nos formations à venir pour vous inscrire.</p>
               </div>
             )}
           </div>
@@ -405,14 +433,14 @@ export default function FormationsPage() {
 
       {/* Formations Passées */}
       {activeTab === "passee" && (
-        <section className="py-16 px-4">
+        <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             {formationsPassees.length > 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {formationsPassees.map((formation) => (
                   <div
                     key={formation.id}
-                    className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 opacity-75"
+                    className="bg-white rounded-2xl border border-gray-200 p-6 opacity-80"
                   >
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-gray-500 text-sm font-medium">✓ Terminée</span>
@@ -422,13 +450,13 @@ export default function FormationsPage() {
                       <span className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(formation.level)}`}>
                         {formation.level}
                       </span>
-                      <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
                         {formation.duration}
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-bold mb-3">{formation.title}</h4>
-                    <p className="text-gray-400 text-sm mb-4">{formation.description}</p>
+                    <h4 className="text-xl font-bold mb-3 text-gray-800">{formation.title}</h4>
+                    <p className="text-gray-500 text-sm mb-4">{formation.description}</p>
 
                     <div className="text-sm text-gray-500">
                       Date : {new Date(formation.date).toLocaleDateString("fr-FR")}
@@ -439,8 +467,8 @@ export default function FormationsPage() {
             ) : (
               <div className="text-center py-16">
                 <div className="text-6xl mb-4">📖</div>
-                <h3 className="text-2xl font-bold mb-2">Aucune formation passée</h3>
-                <p className="text-gray-400">Les formations terminées apparaîtront ici.</p>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800">Aucune formation passée</h3>
+                <p className="text-gray-500">Les formations terminées apparaîtront ici.</p>
               </div>
             )}
           </div>
@@ -448,7 +476,7 @@ export default function FormationsPage() {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-red-800 via-red-700 to-red-900">
+      <section className="py-20 px-4 bg-gradient-to-br from-red-600 via-red-700 to-red-800">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Besoin d'une formation personnalisée ?
