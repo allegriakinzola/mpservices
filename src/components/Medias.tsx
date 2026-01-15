@@ -8,7 +8,7 @@ export default function Medias() {
   const socialLinks = [
     {
       name: "WhatsApp",
-      href: "#",
+      href: "https://wa.me/243820486006",
       color: "hover:bg-green-600",
       icon: (
         <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -18,7 +18,7 @@ export default function Medias() {
     },
     {
       name: "Telegram",
-      href: "#",
+      href: "https://t.me/+243820486006",
       color: "hover:bg-blue-500",
       icon: (
         <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -28,7 +28,7 @@ export default function Medias() {
     },
     {
       name: "Discord",
-      href: "#",
+      href: "https://discord.gg/2XZBd9ty",
       color: "hover:bg-indigo-600",
       icon: (
         <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

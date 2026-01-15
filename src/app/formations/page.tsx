@@ -477,11 +477,22 @@ export default function FormationsPage() {
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-bold mb-3 text-gray-800">{formation.title}</h4>
+                    <h4 className="text-xl font-bold mb-2 text-gray-800">{formation.title}</h4>
                     <p className="text-gray-500 text-sm mb-4">{formation.description}</p>
 
-                    <div className="text-sm text-gray-500">
-                      Début : {new Date(formation.date).toLocaleDateString("fr-FR")}
+                    <div className="space-y-2 text-sm border-t border-gray-100 pt-4">
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Début :</span>
+                        <span className="font-medium text-gray-700">{new Date(formation.date).toLocaleDateString("fr-FR")}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Formateur :</span>
+                        <span className="font-medium text-gray-700">{formation.instructor}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Prix :</span>
+                        <span className="font-medium text-red-600">{formation.price}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -506,7 +517,7 @@ export default function FormationsPage() {
                 {formationsPassees.map((formation) => (
                   <div
                     key={formation.id}
-                    className="bg-white rounded-2xl border border-gray-200 p-6 opacity-80"
+                    className="bg-white rounded-2xl border border-gray-200 p-6 opacity-90"
                   >
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-gray-500 text-sm font-medium">✓ Terminée</span>
@@ -521,11 +532,26 @@ export default function FormationsPage() {
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-bold mb-3 text-gray-800">{formation.title}</h4>
+                    <h4 className="text-xl font-bold mb-2 text-gray-800">{formation.title}</h4>
                     <p className="text-gray-500 text-sm mb-4">{formation.description}</p>
 
-                    <div className="text-sm text-gray-500">
-                      Date : {new Date(formation.date).toLocaleDateString("fr-FR")}
+                    <div className="space-y-2 text-sm border-t border-gray-100 pt-4">
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Date :</span>
+                        <span className="font-medium text-gray-700">{new Date(formation.date).toLocaleDateString("fr-FR")}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Formateur :</span>
+                        <span className="font-medium text-gray-700">{formation.instructor}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Participants :</span>
+                        <span className="font-medium text-gray-700">{formation.spots}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-500">Prix :</span>
+                        <span className="font-medium text-red-600">{formation.price}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -544,7 +570,7 @@ export default function FormationsPage() {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-red-600 via-red-700 to-red-800">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl text-white md:text-4xl font-bold mb-6">
             Besoin d'une formation personnalisée ?
           </h2>
           <p className="text-xl text-gray-200 mb-8">
