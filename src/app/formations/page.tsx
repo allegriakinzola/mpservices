@@ -132,7 +132,7 @@ export default function FormationsPage() {
       status: "encours",
       index: 5,
     },
-    // Formations précédentes
+    // Formations récentes
     {
       id: 5,
       title: "Base du Trading",
@@ -225,11 +225,19 @@ export default function FormationsPage() {
     },
   ];
 
-  // Filtrer et trier les formations par statut et index
+  // Filtrer et trier les formations par statut et date
   const getFormationsByStatus = (status: Formation["status"]) => {
     return formations
       .filter((f) => f.status === status)
-      .sort((a, b) => b.index - a.index); // Tri décroissant par index
+      .sort((a, b) => {
+        // Tri chronologique par date (plus récent en premier pour passées, plus proche en premier pour futures/encours)
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        if (status === "passee") {
+          return dateB - dateA; // Plus récent en premier
+        }
+        return dateA - dateB; // Plus proche en premier
+      });
   };
 
   const formationsFutures = getFormationsByStatus("future");
@@ -276,7 +284,7 @@ export default function FormationsPage() {
             {[
               { id: "future", label: "Formations à venir", count: formationsFutures.length },
               { id: "encours", label: "En cours", count: formationsEnCours.length },
-              { id: "passee", label: "Précédentes", count: formationsPassees.length },
+              { id: "passee", label: "Récentes", count: formationsPassees.length },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -508,7 +516,7 @@ export default function FormationsPage() {
         </section>
       )}
 
-      {/* Formations Précédentes */}
+      {/* Formations Récentes */}
       {activeTab === "passee" && (
         <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
@@ -559,7 +567,7 @@ export default function FormationsPage() {
             ) : (
               <div className="text-center py-16">
                 <div className="text-6xl mb-4">📖</div>
-                <h3 className="text-2xl font-bold mb-2 text-gray-800">Aucune formation précédente</h3>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800">Aucune formation récente</h3>
                 <p className="text-gray-500">Les formations terminées apparaîtront ici.</p>
               </div>
             )}

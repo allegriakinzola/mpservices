@@ -10,16 +10,25 @@ interface Conference {
   location: string;
   participants: number;
   description: string;
+  theme: string;
+  duration: string;
+  time?: string;
+  partner?: string;
   image?: string;
 }
 
 interface FormationRealisee {
   id: number;
   title: string;
+  description: string;
   date: string;
-  participants: number;
   duration: string;
-  type: string;
+  level: string;
+  price: string;
+  instructor: string;
+  spots: number;
+  mode: string;
+  vacation: string;
 }
 
 interface Etudiant {
@@ -50,8 +59,11 @@ export default function RealisationsPage() {
       title: "Conférence Trading – Brazzaville",
       date: "2025-11-14",
       location: "Hôtel GHS, Brazzaville, Congo",
-      participants: 20,
-      description: "Échange avec les traders résidant en République du Congo sur les enjeux du trading, les risques et les stratégies appropriées pour améliorer leur rentabilité. Thème : Expérience Deriv (+25 ans d'activité). Durée : 2 jours (14-16/11/2025). Partenaire : Deriv.",
+      participants: 120,
+      description: "Échange avec les traders résidant en République du Congo sur les enjeux du trading, les risques et les stratégies appropriées pour améliorer leur rentabilité.",
+      theme: "Expérience Deriv (+25 ans d'activité)",
+      duration: "2 jours (14-16/11/2025)",
+      partner: "Deriv",
     },
     {
       id: 2,
@@ -59,59 +71,92 @@ export default function RealisationsPage() {
       date: "2026-02-07",
       location: "Silikin Village",
       participants: 100,
-      description: "Événement à venir. Thème : Déclic financier. Date : 07 février 2026. Heure : 09h00. Durée : 3 heures. Capacité : 100 personnes.",
+      description: "Événement à venir pour inspirer et motiver la communauté des traders.",
+      theme: "Déclic financier",
+      duration: "3 heures",
+      time: "09h00",
     },
   ];
 
-  // Formations réalisées
+  // Formations réalisées (synchronisées avec la page formations)
   const formationsRealisees: FormationRealisee[] = [
     {
       id: 1,
-      title: "Trading Forex Avancé - Cohorte 15",
-      date: "2025-12-01",
-      participants: 45,
-      duration: "4 semaines",
-      type: "En ligne",
+      title: "Base du Trading",
+      description: "Les bases du trading : initiation au trading et aux plateformes de trading.",
+      date: "2025-02-17T18:00:00",
+      duration: "24 heures",
+      level: "Débutant",
+      price: "100 $ (promo)",
+      instructor: "Hervé K. & Darryl K.",
+      spots: 24,
+      mode: "Présentiel",
+      vacation: "Soir",
     },
     {
       id: 2,
-      title: "Introduction au Trading - Cohorte 30",
-      date: "2025-11-15",
-      participants: 80,
-      duration: "2 semaines",
-      type: "En ligne",
+      title: "Colloque – Les Indices Synthétiques Deriv",
+      description: "Échange pratique sur les indices synthétiques Deriv : Boom, Crash, Jump, Volatilité.",
+      date: "2025-04-17T18:00:00",
+      duration: "6 heures",
+      level: "Mixte",
+      price: "100 $ (promo)",
+      instructor: "Darryl K. & Joycelin P.",
+      spots: 24,
+      mode: "Présentiel",
+      vacation: "Soir",
     },
     {
       id: 3,
-      title: "Indices Synthétiques Masterclass",
-      date: "2025-10-20",
-      participants: 35,
-      duration: "3 semaines",
-      type: "Présentiel",
+      title: "Trading Forex – Stratégies de Base",
+      description: "Comprendre le Forex, les paires de devises, les sessions de marché et les stratégies simples pour débuter.",
+      date: "2025-05-10T09:00:00",
+      duration: "20 heures",
+      level: "Débutant",
+      price: "120 $",
+      instructor: "Expert MPS",
+      spots: 18,
+      mode: "Présentiel",
+      vacation: "Matinale",
     },
     {
       id: 4,
-      title: "Crypto Trading Bootcamp",
-      date: "2025-09-10",
-      participants: 60,
-      duration: "2 semaines",
-      type: "Hybride",
+      title: "Analyse Technique et Indicateurs",
+      description: "Utilisation des indicateurs techniques : RSI, MACD, Moyennes mobiles et figures graphiques.",
+      date: "2025-06-15T18:00:00",
+      duration: "18 heures",
+      level: "Intermédiaire",
+      price: "150 $",
+      instructor: "Darryl K.",
+      spots: 20,
+      mode: "En ligne",
+      vacation: "Soir",
     },
     {
       id: 5,
-      title: "Analyse Technique Pro",
-      date: "2025-08-05",
-      participants: 40,
-      duration: "3 semaines",
-      type: "En ligne",
+      title: "Boom & Crash – Détection des Spikes",
+      description: "Techniques avancées pour détecter les spikes sur Boom et Crash et améliorer la précision d'entrée.",
+      date: "2025-08-20T18:00:00",
+      duration: "16 heures",
+      level: "Avancé",
+      price: "180 $",
+      instructor: "Darryl K.",
+      spots: 15,
+      mode: "En ligne",
+      vacation: "Soir",
     },
     {
       id: 6,
-      title: "Scalping & Day Trading",
-      date: "2025-07-15",
-      participants: 30,
-      duration: "2 semaines",
-      type: "En ligne",
+      title: "Gestion du Risque et Psychologie du Trader",
+      description: "Apprendre à protéger son capital, gérer ses émotions et construire une discipline de trader professionnel.",
+      date: "2025-11-05T09:00:00",
+      duration: "36 heures",
+      level: "Mixte",
+      price: "250 $ (promo)",
+      instructor: "Darryl K.",
+      spots: 22,
+      mode: "En ligne",
+      vacation: "Matinale",
     },
   ];
 
@@ -293,40 +338,52 @@ export default function RealisationsPage() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-red-50 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="relative bg-white rounded-3xl border border-gray-200 overflow-hidden hover:shadow-xl hover:border-red-200 transition-all duration-300">
-                    <div className="relative h-56 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-red-600/40 via-orange-600/30 to-red-800/40"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-24 h-24 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                          <span className="text-5xl">🎤</span>
+                    <div className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-14 h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center shadow-lg">
+                          <span className="text-2xl">🎤</span>
                         </div>
+                        <span className="px-4 py-2 bg-red-100 text-red-600 rounded-full text-sm font-bold">
+                          {conf.participants} participants
+                        </span>
                       </div>
-                      <div className="absolute top-4 left-4 px-4 py-2 bg-black/30 backdrop-blur-sm rounded-full text-sm font-medium">
-                        #{index + 1}
-                      </div>
-                      <div className="absolute top-4 right-4 px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 rounded-full text-sm font-bold shadow-lg">
-                        {conf.participants} participants
-                      </div>
-                    </div>
-                    <div className="p-8">
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
-                        <div className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full">
-                          <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                          </svg>
-                          {new Date(conf.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
-                        </div>
-                        <div className="flex items-center gap-2 px-3 py-1 bg-gray-100 rounded-full">
-                          <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                          </svg>
-                          {conf.location}
-                        </div>
-                      </div>
-                      <h3 className="text-2xl font-bold mb-4 text-gray-800 group-hover:text-red-600 transition-colors">
+                      
+                      <h3 className="text-xl font-bold mb-3 text-gray-800 group-hover:text-red-600 transition-colors">
                         {conf.title}
                       </h3>
-                      <p className="text-gray-600 leading-relaxed">{conf.description}</p>
+                      
+                      <p className="text-gray-500 text-sm leading-relaxed mb-4">{conf.description}</p>
+                      
+                      <div className="bg-gray-50 rounded-xl p-4 space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="text-gray-500">Thème :</span>
+                          <span className="font-medium text-gray-700">{conf.theme}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-500">Date :</span>
+                          <span className="font-medium text-gray-700">{new Date(conf.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span>
+                        </div>
+                        {conf.time && (
+                          <div className="flex justify-between">
+                            <span className="text-gray-500">Heure :</span>
+                            <span className="font-medium text-gray-700">{conf.time}</span>
+                          </div>
+                        )}
+                        <div className="flex justify-between">
+                          <span className="text-gray-500">Durée :</span>
+                          <span className="font-medium text-gray-700">{conf.duration}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gray-500">Lieu :</span>
+                          <span className="font-medium text-gray-700">{conf.location}</span>
+                        </div>
+                        {conf.partner && (
+                          <div className="flex justify-between">
+                            <span className="text-gray-500">Partenaire :</span>
+                            <span className="font-medium text-red-600">{conf.partner}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -338,11 +395,11 @@ export default function RealisationsPage() {
 
       {/* Section Formations Réalisées */}
       {activeSection === "formations" && (
-        <section className="py-20 px-4 bg-white">
+        <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium mb-4">
-                📚 Historique
+              <span className="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">
+                📚 Formations Récentes
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Formations Réalisées</h2>
               <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mb-6 rounded-full"></div>
@@ -351,39 +408,56 @@ export default function RealisationsPage() {
               </p>
             </div>
 
-            {/* Cards au lieu du tableau */}
+            {/* Cards avec design de la page formations */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {formationsRealisees.map((formation, index) => (
+              {[...formationsRealisees].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((formation) => (
                 <div
                   key={formation.id}
-                  className="group relative"
+                  className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-red-200 transition-all duration-300"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-xl hover:border-red-200 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                        formation.type === "En ligne" ? "bg-blue-100 text-blue-600" :
-                        formation.type === "Présentiel" ? "bg-green-100 text-green-600" :
-                        "bg-purple-100 text-purple-600"
-                      }`}>
-                        {formation.type}
-                      </span>
-                      <span className="text-2xl font-bold text-red-600">{formation.participants}</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      formation.level === "Débutant" ? "bg-green-100 text-green-700" :
+                      formation.level === "Intermédiaire" ? "bg-yellow-100 text-yellow-700" :
+                      formation.level === "Avancé" ? "bg-red-100 text-red-700" :
+                      "bg-blue-100 text-blue-700"
+                    }`}>
+                      {formation.level}
+                    </span>
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      formation.mode === "En ligne" ? "bg-blue-100 text-blue-600" : "bg-green-100 text-green-600"
+                    }`}>
+                      {formation.mode}
+                    </span>
+                  </div>
+                  
+                  <h4 className="text-lg font-bold mb-2 text-gray-800">{formation.title}</h4>
+                  <p className="text-gray-500 text-sm mb-4 line-clamp-2">{formation.description}</p>
+                  
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Date :</span>
+                      <span className="font-medium text-gray-700">{new Date(formation.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
-                    <h4 className="text-lg font-bold mb-2 text-gray-800 group-hover:text-red-600 transition-colors">{formation.title}</h4>
-                    <div className="flex items-center gap-4 text-sm text-gray-500">
-                      <span className="flex items-center gap-1">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        {new Date(formation.date).toLocaleDateString("fr-FR", { month: "short", year: "numeric" })}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {formation.duration}
-                      </span>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Durée :</span>
+                      <span className="font-medium text-gray-700">{formation.duration}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Vacation :</span>
+                      <span className="font-medium text-gray-700">{formation.vacation}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Formateur :</span>
+                      <span className="font-medium text-gray-700">{formation.instructor}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Participants :</span>
+                      <span className="font-medium text-gray-700">{formation.spots}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Prix :</span>
+                      <span className="font-medium text-red-600">{formation.price}</span>
                     </div>
                   </div>
                 </div>
@@ -403,7 +477,7 @@ export default function RealisationsPage() {
                 <div className="hidden md:block w-px h-16 bg-gray-200"></div>
                 <div className="text-center">
                   <div className="text-5xl font-bold text-red-600">
-                    {formationsRealisees.reduce((acc, f) => acc + f.participants, 0)}
+                    {formationsRealisees.reduce((acc, f) => acc + f.spots, 0)}
                   </div>
                   <div className="text-gray-600">Participants formés</div>
                 </div>
@@ -463,15 +537,15 @@ export default function RealisationsPage() {
 
       {/* Section Étudiants Traders */}
       {activeSection === "traders" && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-sm font-medium mb-4">
+              <span className="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">
                 📈 Success Stories
               </span>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Nos Traders Actifs</h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-emerald-500 mx-auto mb-6 rounded-full"></div>
-              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Nos Traders Actifs</h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mb-6 rounded-full"></div>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                 Ces étudiants sont devenus des traders rentables et vivent de leur passion.
               </p>
             </div>
@@ -482,27 +556,27 @@ export default function RealisationsPage() {
                   key={trader.id}
                   className="group relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="relative bg-white/5 backdrop-blur-sm rounded-3xl border border-white/10 p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-100 to-red-50 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="relative bg-white rounded-3xl border border-gray-200 p-8 hover:shadow-xl hover:border-red-200 transition-all duration-300">
                     <div className="flex items-start gap-5">
-                      <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center text-2xl font-bold flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl flex items-center justify-center text-2xl font-bold text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                         {trader.name.charAt(0)}
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <h4 className="font-bold text-xl group-hover:text-green-300 transition-colors">{trader.name}</h4>
-                          <span className="px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-xs font-medium flex items-center gap-1">
-                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                          <h4 className="font-bold text-xl text-gray-800 group-hover:text-red-600 transition-colors">{trader.name}</h4>
+                          <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-xs font-medium flex items-center gap-1">
+                            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                             Trader Actif
                           </span>
                         </div>
-                        <p className="text-orange-300 mb-4">{trader.formation}</p>
+                        <p className="text-red-600 font-medium mb-4">{trader.formation}</p>
                         {trader.testimonial && (
-                          <div className="relative">
-                            <svg className="absolute -top-2 -left-2 w-8 h-8 text-green-600/30" fill="currentColor" viewBox="0 0 24 24">
+                          <div className="relative bg-gray-50 rounded-xl p-4">
+                            <svg className="absolute top-2 left-2 w-6 h-6 text-red-200" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                             </svg>
-                            <p className="text-gray-300 italic pl-6 leading-relaxed">{trader.testimonial}</p>
+                            <p className="text-gray-600 italic pl-8 leading-relaxed">{trader.testimonial}</p>
                           </div>
                         )}
                       </div>
@@ -514,18 +588,18 @@ export default function RealisationsPage() {
 
             {/* Taux de réussite */}
             <div className="mt-16 relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-600/30 to-emerald-600/30 rounded-3xl blur-3xl"></div>
-              <div className="relative bg-gradient-to-r from-green-900/50 to-emerald-900/50 backdrop-blur-md rounded-3xl border border-green-500/20 p-12 max-w-3xl mx-auto overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-red-100 to-red-50 rounded-3xl blur-3xl"></div>
+              <div className="relative bg-white rounded-3xl border border-red-200 shadow-xl p-12 max-w-3xl mx-auto overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-red-100 rounded-full blur-3xl"></div>
                 <div className="relative text-center">
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl mb-6 shadow-xl">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-600 to-red-700 rounded-2xl mb-6 shadow-xl">
                     <span className="text-4xl">🎯</span>
                   </div>
-                  <h3 className="text-3xl font-bold mb-4">Taux de réussite exceptionnel</h3>
-                  <p className="text-7xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-4">
+                  <h3 className="text-3xl font-bold mb-4 text-gray-800">Taux de réussite exceptionnel</h3>
+                  <p className="text-7xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-4">
                     {Math.round((etudiantsTraders.length / etudiantsFormes.length) * 100)}%
                   </p>
-                  <p className="text-xl text-gray-300">
+                  <p className="text-xl text-gray-600">
                     de nos étudiants sont devenus des traders actifs et rentables
                   </p>
                 </div>
@@ -548,7 +622,7 @@ export default function RealisationsPage() {
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
             Places limitées
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Rejoignez notre prochaine cohorte
           </h2>
           <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
