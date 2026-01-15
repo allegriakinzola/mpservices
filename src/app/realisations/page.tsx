@@ -160,71 +160,87 @@ export default function RealisationsPage() {
     participants: 24,
   };
 
-  // Étudiants formés
+  // Étudiants formés / Traders actifs
   const etudiants: Etudiant[] = [
     {
       id: 1,
-      name: "Jean-Pierre Mukendi",
-      formation: "Trading Forex Avancé",
+      name: "Henock Mukeba",
+      formation: "Scalper",
       dateFormation: "2025-06",
       isTrader: true,
-      testimonial: "Grâce à MPS, je trade maintenant à plein temps et je vis de mes revenus de trading.",
+      testimonial: "Grâce à MPS, j'ai acquis une précision chirurgicale pour extraire des profits rapides sur les marchés grâce au scalping.",
     },
     {
       id: 2,
-      name: "Marie Kasongo",
-      formation: "Crypto Trading",
+      name: "Daniel Kanange",
+      formation: "Swing Trader",
       dateFormation: "2025-05",
       isTrader: true,
-      testimonial: "J'ai quitté mon emploi pour devenir trader. Meilleure décision de ma vie !",
+      testimonial: "L'accompagnement de MPS m'a permis de maîtriser le swing trading pour capturer sereinement les grandes tendances de fond.",
     },
     {
       id: 3,
-      name: "Patrick Lubamba",
-      formation: "Indices Synthétiques",
+      name: "Paul Dimbi",
+      formation: "Gestion des Risques",
       dateFormation: "2025-04",
       isTrader: true,
-      testimonial: "Les stratégies apprises chez MPS m'ont permis de générer des revenus constants.",
+      testimonial: "Market Place Services m'a ouvert les portes des marchés financiers mondiaux avec une expertise en gestion des risques inégalée.",
     },
     {
       id: 4,
-      name: "Sarah Ngalula",
-      formation: "Introduction au Trading",
+      name: "Mathieux Bokolo",
+      formation: "Sécurité Financière",
       dateFormation: "2025-08",
-      isTrader: false,
-      testimonial: "Formation excellente, je continue d'apprendre pour devenir trader à plein temps.",
+      isTrader: true,
+      testimonial: "La rigueur de MPS en matière de sécurité des données assure une protection totale de mes actifs financiers au quotidien.",
     },
     {
       id: 5,
-      name: "David Tshimanga",
-      formation: "Forex + Crypto",
+      name: "Glody Zenga",
+      formation: "Transformation Numérique",
       dateFormation: "2025-03",
       isTrader: true,
-      testimonial: "Je gère maintenant un portefeuille diversifié grâce aux compétences acquises.",
+      testimonial: "La transformation numérique impulsée par MPS a radicalement optimisé ma productivité et mes performances opérationnelles.",
     },
     {
       id: 6,
-      name: "Esther Mbuyi",
-      formation: "Analyse Technique",
+      name: "Elie Kalengayi",
+      formation: "Indices Synthétiques",
       dateFormation: "2025-07",
-      isTrader: false,
-      testimonial: "J'ai amélioré mes analyses et mes décisions d'investissement.",
+      isTrader: true,
+      testimonial: "Le colloque sur les indices synthétiques a été le catalyseur indispensable pour comprendre et exploiter ces marchés complexes.",
     },
     {
       id: 7,
-      name: "Christian Kabongo",
-      formation: "Scalping Masterclass",
+      name: "Isaac Kamwanga",
+      formation: "Crypto Trading",
       dateFormation: "2025-02",
       isTrader: true,
-      testimonial: "Le scalping est devenu ma spécialité. Revenus quotidiens stables.",
+      testimonial: "Les services crypto de MPS allient fluidité transactionnelle et sécurité maximale, facilitant grandement mes investissements numériques.",
     },
     {
       id: 8,
-      name: "Grace Mutombo",
-      formation: "Trading Complet",
+      name: "Ged Mukendi",
+      formation: "Solutions MPS",
       dateFormation: "2025-01",
       isTrader: true,
-      testimonial: "De débutante à trader rentable en 6 mois. Merci MPS !",
+      testimonial: "L'automatisation des procédures administratives via les solutions MPS a rendu ma gestion fluide, efficace et totalement transparente.",
+    },
+    {
+      id: 9,
+      name: "Pistis Kingwaya",
+      formation: "Ateliers Stratégiques",
+      dateFormation: "2025-09",
+      isTrader: true,
+      testimonial: "Les ateliers stratégiques de MPS offrent un savoir-faire de standard international indispensable pour tout professionnel de la finance en RDC.",
+    },
+    {
+      id: 10,
+      name: "Lilia Mapasu",
+      formation: "Plateforme MPS",
+      dateFormation: "2025-10",
+      isTrader: true,
+      testimonial: "L'aspect intuitif et innovant de la plateforme MPS répond parfaitement aux exigences de performance de l'économie numérique actuelle.",
     },
   ];
 
@@ -625,7 +641,7 @@ export default function RealisationsPage() {
                   </div>
                   <h3 className="text-3xl font-bold mb-4 text-gray-800">Taux de réussite exceptionnel</h3>
                   <p className="text-7xl font-bold bg-gradient-to-r from-red-600 to-red-700 bg-clip-text text-transparent mb-4">
-                    {Math.round((etudiantsTraders.length / etudiantsFormes.length) * 100)}%
+                    {Math.round((etudiantsTraders.length / etudiantsFormes.length) * 80)}%
                   </p>
                   <p className="text-xl text-gray-600">
                     de nos étudiants sont devenus des traders actifs et rentables
