@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const quickLinks = [
@@ -22,9 +23,7 @@ export default function Footer() {
           {/* À propos */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
-                <span className="text-xl font-bold text-red-500">M</span>
-              </div>
+              <Image src="/images/logo2.PNG" alt="Logo Market Place Services" width={50} height={50}/>
               <span className="text-lg font-bold">
                 Market Place <span className="text-red-400">Services</span>
               </span>

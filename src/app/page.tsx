@@ -278,7 +278,7 @@ export default function Home() {
                 </div>
                 <h4 className="font-bold text-gray-800 text-2xl mb-2">Darryl Kalambayi</h4>
                 <span className="inline-block px-4 py-1.5 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">Analyste Financier</span>
-                <p className="text-gray-600 leading-relaxed">Trader indépendant sur les indices synthétiques Deriv (Boom/Crash) depuis 2018.</p>
+                <p className="text-gray-600 leading-relaxed text-sm"> Trader indépendant spécialisé sur les indices synthétiques Deriv (Boom/Crash) depuis 2018, avec une solide expérience dans l’analyse des mouvements de marché et la mise en place de stratégies performantes adaptées à ces instruments.</p>
               </div>
             </div>
 
@@ -291,7 +291,7 @@ export default function Home() {
                 </div>
                 <h4 className="font-bold text-gray-800 text-2xl mb-2">Hervé Kabeya</h4>
                 <span className="inline-block px-4 py-1.5 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">Expert Forex</span>
-                <p className="text-gray-600 leading-relaxed">Plus de 5 ans d'expertise sur les marchés financiers : Forex et indices synthétiques Deriv (depuis 2019).</p>
+                <p className="text-gray-600 leading-relaxed text-sm">+5 ans d'expertise approfondie sur les marchés financiers, spécialisé en Forex et en indices synthétiques Deriv, avec une maîtrise avancée de la détection et de l'exploitation des spikes pour des stratégies de trading précises et performantes.</p>
               </div>
             </div>
 
@@ -303,8 +303,8 @@ export default function Home() {
                   <Image src="/images/Phobad.JPG" alt="Joycelin Phoba" fill className="object-cover" />
                 </div>
                 <h4 className="font-bold text-gray-800 text-2xl mb-2">Joycelin Phoba</h4>
-                <span className="inline-block px-4 py-1.5 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">Trader</span>
-                <p className="text-gray-600 leading-relaxed">Plus de 5 ans d'activité sur les marchés financiers (depuis 2021).</p>
+                <span className="inline-block px-4 py-1.5 bg-red-100 text-red-600 rounded-full text-sm font-medium mb-4">Analyste Technique</span>
+                <p className="text-gray-600 leading-relaxed text-sm">+5 ans d'activité sur les marchés financiers, expert en indicateurs techniques et en analyse graphique, avec une solide maîtrise de l'analyse technique pour l'aide à la décision en trading.</p>
               </div>
             </div>
           </div>

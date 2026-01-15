@@ -22,7 +22,7 @@ export default function Navbar() {
             <Link href="/" className="flex-shrink-0 flex items-center gap-2 group">
               <div className="w-10 h-10 relative rounded-lg overflow-hidden">
                 <Image
-                  src="/images/logo.PNG"
+                  src="/images/logojpg.jpeg"
                   alt="Market Place Services"
                   fill
                   className="object-contain"
