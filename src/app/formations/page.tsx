@@ -83,6 +83,7 @@ export default function FormationsPage() {
       duration: "30 heures",
       level: "Débutant",
       price: "139 $",
+      image: "/images/Market_place_formation.jpg.jpeg",
       instructor: "Expert MPS",
       spots: 20,
       status: "future",
@@ -327,7 +328,7 @@ export default function FormationsPage() {
                     <div className="grid lg:grid-cols-2">
                       <div className="relative h-64 lg:h-auto">
                         <Image
-                          src="/images/tradeur.jpg"
+                          src={formationsFutures[0].image || "/images/tradeur.jpg"}
                           alt={formationsFutures[0].title}
                           fill
                           className="object-cover"
