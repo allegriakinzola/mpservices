@@ -99,7 +99,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 pt-16">
+    <div className="min-h-screen bg-white text-gray-800 pt-[116px]">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
         <div className="absolute inset-0 bg-[url('/images/tradeur.jpg')] bg-cover bg-center opacity-20"></div>

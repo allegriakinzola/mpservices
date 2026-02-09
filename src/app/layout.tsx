@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Medias from "@/components/Medias";
+import FeaturedBanner from "@/components/FeaturedBanner";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -34,6 +35,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${inter.variable} font-sans antialiased`}
       >
         <Navbar />
+        <FeaturedBanner />
         <main>{children}</main>
         <Footer />
         <Medias />

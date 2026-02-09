@@ -248,7 +248,7 @@ export default function RealisationsPage() {
   const etudiantsTraders = etudiants.filter((e) => e.isTrader);
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 pt-16">
+    <div className="min-h-screen bg-white text-gray-800 pt-[116px]">
       {/* Hero Section - Design Amélioré */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
         {/* Background avec effets */}

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-gray-800 pt-16">
+    <div className="min-h-screen bg-white text-gray-800 pt-[116px]">
       {/* Bannière principale */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
         <div className="absolute inset-0 z-0">

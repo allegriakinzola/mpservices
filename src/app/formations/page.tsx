@@ -258,7 +258,7 @@ export default function FormationsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 pt-16">
+    <div className="min-h-screen bg-white text-gray-800 pt-[116px]">
       {/* Hero Section */}
       <section className="py-20 px-4 relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-red-800">
         <div className="absolute inset-0 bg-[url('/images/tradeur.jpg')] bg-cover bg-center opacity-20"></div>
@@ -396,7 +396,7 @@ export default function FormationsPage() {
                         </div>
 
                         <Link
-                          href="https://docs.google.com/forms/d/e/1FAIpQLSe7sK1_kaXCvfuuG7Xu5o3hOA-sEc4CZ5xc5ZwKEferAAZWHw/viewform" target="_blank" rel="noopener noreferrer"
+                          href="https://docs.google.com/forms/d/e/1FAIpQLScy_M1z6q9VMlpFMq3pKVEr83I8D8TYVtImKWXk_d6fj5i-XQ/viewform?usp=dialog" target="_blank" rel="noopener noreferrer"
                           className="block w-full text-center py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-semibold text-lg transition-all hover:scale-105 shadow-lg"
                         >
                           S'inscrire maintenant
