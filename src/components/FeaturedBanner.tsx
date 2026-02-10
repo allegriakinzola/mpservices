@@ -5,8 +5,6 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function FeaturedBanner() {
-  const [isVisible, setIsVisible] = useState(true);
-
   const messages = [
     "🎓 Formation Boom/Crash Index - De zéro à trader confirmé",
     "💰 Prix spécial : 139$ seulement",
@@ -26,8 +24,6 @@ export default function FeaturedBanner() {
     return () => clearInterval(interval);
   }, [messages.length]);
 
-  if (!isVisible) return null;
-
   return (
     <div className="fixed top-16 left-0 right-0 z-40 shadow-lg animate-slide-down overflow-hidden">
       {/* Dégradé blanc-rouge animé */}
@@ -39,20 +35,6 @@ export default function FeaturedBanner() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-2 relative">
-        {/* Bouton fermer en position absolue pour mobile et desktop */}
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsVisible(false);
-          }}
-          className="absolute top-2 right-4 z-50 p-1 hover:bg-red-700/30 rounded-full transition-colors hover:rotate-90 duration-300 text-red-900"
-          aria-label="Fermer la bannière"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
         {/* Contenu cliquable sur mobile, non-cliquable sur desktop */}
         <Link
           href="https://docs.google.com/forms/d/e/1FAIpQLScy_M1z6q9VMlpFMq3pKVEr83I8D8TYVtImKWXk_d6fj5i-XQ/viewform?usp=dialog"
@@ -60,7 +42,7 @@ export default function FeaturedBanner() {
           rel="noopener noreferrer"
           className="block sm:pointer-events-none"
         >
-          <div className="flex items-center justify-between gap-3 pr-8">
+          <div className="flex items-center justify-between gap-3">
             {/* Image miniature avec animation */}
             <div className="flex-shrink-0 hidden md:block animate-bounce-slow pointer-events-auto">
               <div className="relative w-16 h-16 rounded-lg overflow-hidden border-2 border-white/30 hover:border-white transition-all hover:scale-110 shadow-lg animate-pulse-border">
